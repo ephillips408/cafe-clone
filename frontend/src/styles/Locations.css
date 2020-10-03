@@ -1,0 +1,14 @@
+.locations-container > h1 {
+  text-align: center;
+  font-size: 60px;
+  padding-top: 1rem;
+}
+
+.locations-wrapper {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.locations-list > li {
+  padding-bottom: 2rem;
+}
