@@ -51,8 +51,10 @@ a {
   width: 30rem;
   background-color: #242222;
   height: 100%;
+  transition: all 0.3s ease;
 }
 
 .open {
   transform: translateX(0);
+  transition: all 0.3s ease;
 }

@@ -8,8 +8,6 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
-import "../styles/NewNavbar.css";
-
 const NewNavbar = () => {
   const [clicked, setClicked] = useState(false);
   const handleClick = () => setClicked(!clicked);
