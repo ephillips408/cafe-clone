@@ -1,3 +1,7 @@
+ul {
+  list-style-type: none;
+}
+
 .location-info {
   display: flex;
   flex-direction: row;
@@ -17,7 +21,8 @@
 }
 
 .location-info > ul {
-  list-style-type: none;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
 }

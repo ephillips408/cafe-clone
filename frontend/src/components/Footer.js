@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../styles/Footer.css"
 
@@ -37,7 +38,7 @@ const Footer = () => {
             to="/"
             target="_blank"
             aria-label="Instagram"
-            className="social-icon-instagram"
+            className="social-icon"
           >
             <FontAwesomeIcon icon={faInstagram} />
           </Link>

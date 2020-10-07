@@ -3,8 +3,6 @@ import React from "react";
 import "../styles/Locations.css";
 import LocationCard from "./LocationCard";
 
-import "../";
-
 const Locations = () => {
   return (
     <div className="locations-container">

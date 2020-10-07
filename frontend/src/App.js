@@ -2,17 +2,21 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "./styles/App.css"
-import Navbar from "./components/Navbar";
 import HomePage from "./components/pages/HomePage";
 
-function App() {
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import NewNavbar from "./components/NewNavbar";
+
+const App = () => {
   return (
     <React.Fragment>
       <BrowserRouter>
-        <Navbar />
+        <NewNavbar />
         <Switch>
           <Route path="/" exact component={HomePage} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </React.Fragment>
   );
