@@ -1,6 +1,12 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  /* padding: 0; This is what was causing the locating card info to not be centered. */
   font-family: 'Hind Siliguri', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  * {
+    padding: 0;
+  }
 }

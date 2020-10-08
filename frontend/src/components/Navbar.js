@@ -42,7 +42,6 @@ const Navbar = () => {
         </div>
       </nav>
       <aside className="sidebar">
-        <h3>Pages</h3>
         <ul>
           <li>
             <Link to="/" onClick={handleClick}>

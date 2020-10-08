@@ -6,7 +6,7 @@ const LocationCard = (props) => {
   return (
     <div className="location-info">
       <ul>
-        <li>{props.neighborhood}</li>
+        <h2>{props.neighborhood}</h2>
         <li>{props.address}</li>
         <li>{props.location}</li>
         <li>{props.hours}</li>
