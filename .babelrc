@@ -1,0 +1,9 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env"
+    ]
+  ]
+}
+
+// Allows projet to run from terminal and to run ES6.

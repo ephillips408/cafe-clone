@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,14 +13,6 @@ import "../styles/Navbar.css";
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
   const handleClick = () => setClicked(!clicked);
-
-  useEffect(() => {
-    if (clicked) {
-      document.querySelector(".sidebar").classList.add("open");
-    } else {
-      document.querySelector(".sidebar").classList.remove("open");
-    }
-  }, [clicked]);
 
   return (
     <React.Fragment>
@@ -41,7 +33,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <aside className="sidebar">
+      <aside className={clicked ? "sidebar open" : "sidebar"}>
         <ul>
           <li>
             <Link to="/" onClick={handleClick}>

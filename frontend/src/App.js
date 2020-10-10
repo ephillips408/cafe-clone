@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import "./styles/App.css"
+import "./styles/App.css";
 
 import HomePage from "./components/pages/HomePage";
+import AdminLogin from "./components/pages/AdminLogin";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
@@ -13,12 +14,13 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={HomePage} />
+          <Route path="/admin" component={AdminLogin} />
+          <Route path="/" component={HomePage} />
         </Switch>
         <Footer />
       </BrowserRouter>
     </React.Fragment>
   );
-}
+};
 
 export default App;
