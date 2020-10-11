@@ -1,4 +1,4 @@
-const locationData = [
+export default [
   {
     neighborhood: "Neighborhood",
     address: "123 Street Name St.",
