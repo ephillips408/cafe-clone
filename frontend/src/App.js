@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/App.css";
 
 import HomePage from "./components/pages/HomePage";
-import AdminLogin from "./components/pages/AdminLogin";
+import Login from "./components/pages/Login";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
@@ -14,7 +14,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route path="/admin" component={AdminLogin} />
+          <Route path="/login" component={Login} />
           <Route path="/" component={HomePage} />
         </Switch>
         <Footer />

@@ -29,7 +29,7 @@ const Footer = () => {
       </section>
       <section className="lower-bar">
         <div className="logo">
-          <Link to="/admin" className="logo">
+          <Link to="/login" className="logo">
             <FontAwesomeIcon icon={faCoffee} />
           </Link>
         </div>

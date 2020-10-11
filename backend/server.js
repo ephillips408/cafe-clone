@@ -8,7 +8,7 @@ import adminRoute from "./routes/adminRoute";
 
 dotenv.config();
 
-const mongodbURL = config.MONGODBURL;
+const mongodbURL = config.MONGODB_URL;
 
 mongoose
   .connect(mongodbURL, {
