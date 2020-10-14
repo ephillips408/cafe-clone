@@ -1,4 +1,4 @@
-import { config } from "dotenv/types";
+import config from "./config";
 import jwt from "jsonwebtoken";
 
 const getToken = (user) => {
@@ -8,7 +8,7 @@ const getToken = (user) => {
     },
     config.JWT_SECRET,
     {
-      expiresIn: "2h"
+      expiresIn: "2h",
     }
   );
 };
@@ -20,15 +20,15 @@ const isAuth = (req, res, next) => {
     const onlyToken = token.slice(7, token.length); // Removes "Bearer, "
     jwt.verify(onlyToken, config.JWT_SECRET, (err, decode) => {
       if (err) {
-        return res.status(401).send({ msg: "Invalid Token" })
+        return res.status(401).send({ msg: "Invalid Token" });
       }
-      req.user = decode // Saves decoded data to user.
+      req.user = decode; // Saves decoded data to user.
       next();
       return;
     });
   } else {
-    return res.status(401).send({ msg: "Token is not supplied." })
+    return res.status(401).send({ msg: "Token is not supplied." });
   }
-}
+};
 
-export { getToken, isAuth }
+export { getToken, isAuth };

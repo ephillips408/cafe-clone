@@ -29,10 +29,10 @@ const useStyles = makeStyles({
 const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const adminLogin = useSelector((state) => state.adminLogin)
+  const adminLogin = useSelector((state) => state.adminLogin);
   const { loading, adminInfo, error } = adminLogin;
   const dispatch = useDispatch();
-  const redirect = "/" // Attempt to redirect to homepage when login is successful for now.
+  const redirect = "/"; // Attempt to redirect to homepage when login is successful for now.
 
   useEffect(() => {
     if (adminInfo) {
@@ -40,53 +40,51 @@ const Login = (props) => {
     }
     return () => {
       // Cleanup not necessary
-    }
+    };
   }, [adminInfo]);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(login(username, password))
-  }
+    dispatch(login(username, password));
+  };
 
   const classes = useStyles();
   return (
     <React.Fragment>
       <div className="login-card">
-        <form onSubmit={submitHandler}>
-          <Card className={classes.root}>
-            <CardContent>
-              <Typography
-                className={classes.title}
-                color="textSecondary"
-                gutterBottom
-              >
-                Login
-              </Typography>
-              <TextField
-                className={classes.textInput}
-                id="outlined-search"
-                label="Username"
-                type="search"
-                variant="outlined"
-                onChange={(event) => setUsername(event.target.value)}
-              />
-              <br />
-              <TextField
-                className={classes.textInput}
-                id="outlined-password-input"
-                label="Password"
-                type="password"
-                variant="outlined"
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </CardContent>
-            <CardActions>
-              <Button variant="contained" color="default">
-                Login
-              </Button>
-            </CardActions>
-          </Card>
-        </form>
+        <Card className={classes.root}>
+          <CardContent>
+            <Typography
+              className={classes.title}
+              color="textSecondary"
+              gutterBottom
+            >
+              Login
+            </Typography>
+            <TextField
+              className={classes.textInput}
+              id="outlined-search"
+              label="Username"
+              type="search"
+              variant="outlined"
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <br />
+            <TextField
+              className={classes.textInput}
+              id="outlined-password-input"
+              label="Password"
+              type="password"
+              variant="outlined"
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </CardContent>
+          <CardActions>
+            <Button variant="contained" color="default" onClick={submitHandler}>
+              Login
+            </Button>
+          </CardActions>
+        </Card>
       </div>
     </React.Fragment>
   );

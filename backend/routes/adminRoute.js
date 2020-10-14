@@ -1,25 +1,23 @@
 import express from "express";
 
 import Admin from "../models/adminModel";
+import { getToken } from "../utils";
 
 const router = express.Router();
 
 // Admin Login
 router.post("/login", async (req, res) => {
-  const loginAdmin = await Admin.findOne({
-    username: req.body.username,
-    password = req.body.password,
-  })
-
-  if (loginAdmin) {
-    res.send({
-      name: loginAdmin.username,
-      token: getToken(loginAdmin)
-    });
+  const admin = await Admin.findByCredentials(req.body.username, req.body.password)
+  
+  if (admin) {
+    res.status(200).send({
+      username: admin.username,
+      token: getToken(admin),
+    })
   } else {
-    res.status(401).send({ msg: "Invalid Username or Password" })
+    res.status(401).send({ msg: "Invalid login." })
   }
-})
+});
 
 // Create an admin account
 router.get("/createadmin", async (req, res) => {
