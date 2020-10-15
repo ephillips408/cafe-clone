@@ -32,7 +32,7 @@ const Login = (props) => {
   const adminLogin = useSelector((state) => state.adminLogin);
   const { loading, adminInfo, error } = adminLogin;
   const dispatch = useDispatch();
-  const redirect = "/"; // Attempt to redirect to homepage when login is successful for now.
+  const redirect = "/panel"; // Redirect to panel. Run conditional rendering when not logged in.
 
   useEffect(() => {
     if (adminInfo) {

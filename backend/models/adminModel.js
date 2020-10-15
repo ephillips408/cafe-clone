@@ -23,7 +23,7 @@ adminSchema.pre("save", async function (next) {
 });
 
 adminSchema.statics.findByCredentials = async (username, password) => {
-  const admin = await Admin.findOne({ username }); // This is where I'm having issues. Need to define Admin
+  const admin = await Admin.findOne({ username });
   if (!admin) {
     throw new Error("Unable to login.");
   }

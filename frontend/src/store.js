@@ -1,9 +1,11 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import { adminLoginReducer } from "./reducers/adminReducers"
+import { adminLoginReducer } from "./reducers/adminReducers";
 
-// const initialState = { adminLogin: adminInfo }
+const adminInfo = null;
+
+const initialState = { adminLogin: { adminInfo } };
 const reducer = combineReducers({
   adminLogin: adminLoginReducer,
 });
@@ -11,7 +13,7 @@ const reducer = combineReducers({
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // Allows for use of Redux DevTools (Chrome extension).
 const store = createStore(
   reducer,
-  // initialState,
+  initialState,
   composeEnhancer(applyMiddleware(thunk))
 );
 

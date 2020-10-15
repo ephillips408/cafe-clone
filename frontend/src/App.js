@@ -7,6 +7,7 @@ import HomePage from "./components/pages/HomePage";
 import Login from "./components/pages/Login";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import AdminPanel from "./components/pages/AdminPanel";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route path="/login" component={Login} />
+          <Route path="/panel" component={AdminPanel} />
           <Route path="/" component={HomePage} />
         </Switch>
         <Footer />
