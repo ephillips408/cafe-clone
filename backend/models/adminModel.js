@@ -23,6 +23,7 @@ adminSchema.pre("save", async function (next) {
 });
 
 adminSchema.statics.findByCredentials = async (username, password) => {
+  // Unhandled promise rejection in here. Will be deprecated. Issue begins with first if statement.
   const admin = await Admin.findOne({ username });
   if (!admin) {
     throw new Error("Unable to login.");

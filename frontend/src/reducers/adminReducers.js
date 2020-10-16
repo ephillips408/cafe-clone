@@ -13,7 +13,7 @@ const adminLoginReducer = (state = {}, action) => {
     case ADMIN_SIGNIN_FAIL:
       return { loading: false, error: action.payload }
     default:
-      return state;    
+      return state;
   }
 };
 

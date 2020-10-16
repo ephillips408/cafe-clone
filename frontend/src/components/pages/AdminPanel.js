@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 // Still seeing "Cannot read property 'token' of null" when admin not logged in.
 // Login redirect is successful.
 
 const AdminPanel = () => {
-  const adminCreds = useSelector((state) => state.adminLogin);
+  const adminLogin = useSelector((state) => state.adminLogin);
+  const [token, setToken] = useState("")
+
+  useEffect(() =>  {
+    if (adminLogin.adminInfo) {
+      setToken(adminLogin.adminInfo.token)
+    } else {
+      setToken("")
+    }
+  }, console.log(token, adminLogin), []); // only for debugging.
 
   return (
-    <div>
-      {
-        adminCreds.adminInfo.token ? (
-          <div>Hello</div>
-        ) : (
-          <div>Please login to view this page.</div>
-        )
-      }
-    </div>
-  )
+    token === "" ? <div>No credentials</div> : <div>Hello</div>
+  );
 };
 
 export default AdminPanel;

@@ -6,7 +6,6 @@ import { getToken } from "../utils";
 const router = express.Router();
 
 // Admin Login
-// Try to refactor this with a try/catch block to avoid deprecation.
 router.post("/login", async (req, res) => {
   const admin = await Admin.findByCredentials(req.body.username, req.body.password)
   
