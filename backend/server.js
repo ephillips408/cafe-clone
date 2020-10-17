@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 
 import config from "./config";
 import adminRoute from "./routes/adminRoute";
+import productRoute from "./routes/productRoute"
 
 dotenv.config();
 
@@ -22,5 +23,6 @@ const app = express()
 app.use(bodyParser.json())
 
 app.use("/api/admins", adminRoute)
+app.use("/api/products", productRoute)
 
 app.listen(5000, () => console.log("Server is up on http://localhost:5000"))
