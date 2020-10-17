@@ -61,6 +61,7 @@ const Login = (props) => {
             >
               Login
             </Typography>
+            {error && <div className={classes.textInput}>{error}</div>}
             <TextField
               className={classes.textInput}
               id="outlined-search"

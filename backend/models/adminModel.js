@@ -23,18 +23,21 @@ adminSchema.pre("save", async function (next) {
 });
 
 adminSchema.statics.findByCredentials = async (username, password) => {
-  // Unhandled promise rejection in here. Will be deprecated. Issue begins with first if statement.
-  const admin = await Admin.findOne({ username });
-  if (!admin) {
-    throw new Error("Unable to login.");
-  }
-  const isMatch = await bcrypt.compare(password, admin.password);
-  // password is the argument, admin.password is the hash in the database.
+  try {
+    const admin = await Admin.findOne({ username });
+    if (!admin) {
+      throw new Error("Unable to login.");
+    }
 
-  if (!isMatch) {
-    throw new Error("Unable to login.");
+    const isMatch = await bcrypt.compare(password, admin.password);
+    if (!isMatch) {
+      throw new Error("Unable to login.");
+    }
+
+    return admin;
+  } catch (error) {
+    console.log(error);
   }
-  return admin;
 };
 
 const Admin = mongoose.model("Admin", adminSchema);
