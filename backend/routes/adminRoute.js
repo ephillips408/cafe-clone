@@ -7,15 +7,18 @@ const router = express.Router();
 
 // Admin Login
 router.post("/login", async (req, res) => {
-  const admin = await Admin.findByCredentials(req.body.username, req.body.password)
-  
+  const admin = await Admin.findByCredentials(
+    req.body.username,
+    req.body.password
+  );
+
   if (admin) {
     res.status(200).send({
       username: admin.username,
       token: getToken(admin),
-    })
+    });
   } else {
-    res.status(401).send({ msg: "Invalid login." })
+    res.status(401).send({ msg: "Invalid login." });
   }
 });
 
