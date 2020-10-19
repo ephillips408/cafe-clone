@@ -1,0 +1,23 @@
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Makes sure that products wrap to width of screen, and makes it responsive. */
+}
+
+.products li {
+  list-style-type: none; /* Removes bullet point on li */
+  padding: 0;
+  flex: 0 1 34rm; /* flex grow, flex shrink, flex width, in that order */
+  margin: 1rem;
+  border-bottom: .1rem #c0c0c0 solid;
+}
+
+.product-image {
+  max-width: 20rem;
+  max-height: 20rem;
+}
+
+.product-name a {
+  color: #000000
+}

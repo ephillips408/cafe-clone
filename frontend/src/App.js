@@ -8,6 +8,7 @@ import Login from "./components/pages/Login";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import AdminPanel from "./components/pages/AdminPanel";
+import Webstore from "./components/pages/Webstore";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/panel" component={AdminPanel} />
+          <Route path="/store" component={Webstore} />
           <Route path="/" component={HomePage} />
         </Switch>
         <Footer />
