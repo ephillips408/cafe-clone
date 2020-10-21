@@ -1,12 +1,19 @@
 .products {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Makes sure that products wrap to width of screen, and makes it responsive. */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .products li {
-  list-style-type: none; /* Removes bullet point on li */
+  list-style-type: none;
   padding: 0;
   flex: 0 1 34rm; /* flex grow, flex shrink, flex width, in that order */
   margin: 1rem;
@@ -14,10 +21,11 @@
 }
 
 .product-image {
-  max-width: 20rem;
-  max-height: 20rem;
+  max-width: 25rem;
+  max-height: 25rem;
+  resize: both;
 }
 
 .product-name a {
-  color: #000000
+  color: rgb(28,27,27);
 }

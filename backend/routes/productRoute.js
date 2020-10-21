@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
     name: req.body.name,
     price: req.body.price,
     image: req.body.image,
+    description: req.body.description,
   });
 
   const newProduct = await product.save();
@@ -49,6 +50,7 @@ router.put("/:id", async (req, res) => {
       product.name = req.body.name;
       product.price = req.body.price;
       product.image = req.body.image;
+      product.description = req.body.description;
     }
 
     const updatedProduct = product.save();

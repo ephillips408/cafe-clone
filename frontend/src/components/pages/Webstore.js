@@ -20,7 +20,7 @@ const Store = () => {
             <div className="product-name">
               <Link to={`product/${product.id}`}>{product.name}</Link>
             </div>
-            <div className="product-price">{product.price}</div>
+            <div className="product-price">${product.price}</div>
           </div>
         </li>
       ))}

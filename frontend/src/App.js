@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import AdminPanel from "./components/pages/AdminPanel";
 import Webstore from "./components/pages/Webstore";
+import ProductPage from "./components/pages/ProductPage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/login" component={Login} />
           <Route path="/panel" component={AdminPanel} />
           <Route path="/store" component={Webstore} />
+          <Route path="/product/:id" component={ProductPage} />
           <Route path="/" component={HomePage} />
         </Switch>
         <Footer />
