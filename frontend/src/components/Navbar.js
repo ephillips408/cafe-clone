@@ -12,7 +12,9 @@ import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
-  const handleClick = () => setClicked(!clicked);
+  const handleClick = () => {
+    setClicked(!clicked);
+  } 
 
   return (
     <React.Fragment>

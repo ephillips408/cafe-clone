@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import webstoreData from "../../webstoreData";
-import "../../styles/ProductPage.css"
+import "../../styles/ProductPage.css";
+import { useDispatch, useSelector } from "react-redux";
+import { productDetails } from "../../actions/productActions";
 
 const ProductPage = (props) => {
-  const product = webstoreData.products.find(
-    (item) => item.id === props.match.params.id
-  );
+  const productInfo = useSelector((state) => state.productDetails);
+  const { product, loading, error } = productInfo;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(productDetails(props.match.params.id));
+    console.log(props.match.params.id);
+    return () => {
+      // Cleanup not necessary.
+    };
+  }, []);
 
   return (
+    loading ? <div>Loading...</div> :
+    error ? <div>{error}</div> :
+
     <div className="product-container">
-      <img 
+      <img
         className="product-page-image"
         src={product.image}
         alt="bag-of-coffee"
