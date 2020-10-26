@@ -1,3 +1,5 @@
+// This was used for prototyping the styling of the Webstore and Product Page.
+
 export default {
   products: [
     {

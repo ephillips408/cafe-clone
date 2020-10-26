@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 
-import webstoreData from "../../webstoreData";
 import "../../styles/ProductPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { productDetails } from "../../actions/productActions";
