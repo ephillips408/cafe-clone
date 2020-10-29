@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Admin, Resource, ListGuesser } from "react-admin";
+import { Admin, Resource, EditGuesser } from "react-admin";
 import dataProvider from "../admin/dataProvider"
-import restProvider from "ra-data-simple-rest";
+import { ProductEdit, ProductList } from "../admin/products";
 
 // const dataProvider = restProvider("http://localhost:3000/api");
 
@@ -20,7 +20,7 @@ const AdminPanel = () => {
     <div>Please login to view this page.</div>
   ) : (
     <Admin dataProvider={dataProvider}>
-      <Resource name="products" list={ListGuesser} />
+      <Resource name="products" list={ProductList} edit={ProductEdit} />
     </Admin>
   );
 };

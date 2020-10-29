@@ -4,17 +4,6 @@ import { stringify } from "querystring";
 const apiUrl = "http://localhost:3000/api";
 const httpClient = fetchUtils.fetchJson;
 
-// Helper to remove _ from _id
-const renameKey = (object, key, newKey) => {
-  const clone = (obj) => Object.assign({}, obj);
-  const clonedObj = clone(object);
-  const targetKey = clonedObj[key];
-
-  delete clonedObj[key];
-  clonedObj[newKey] = targetKey;
-  return clonedObj;
-};
-
 export default {
   getList: (resource, params) => {
     const { page, perPage } = params.pagination;
@@ -29,8 +18,13 @@ export default {
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
     return httpClient(url).then(({ headers, json }) => ({
-      data: json.map(resource => ({ ...resource, id: resource._id})),
+      data: json.map((resource) => ({ ...resource, id: resource._id })),
       total: parseInt(headers.get("content-range").split("/").pop(), 10),
     }));
   },
+
+  getOne: (resource, params) => 
+    httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
+      data: { ...json, id: json._id }
+    })),
 };
