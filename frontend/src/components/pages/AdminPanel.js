@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Admin, Resource, ListGuesser } from "react-admin";
 import dataProvider from "../admin/dataProvider"
-// import simpleRestProvider from "ra-data-simple-rest";
+import restProvider from "ra-data-simple-rest";
 
-// const dataProvider = simpleRestProvider("http://localhost:3000/api");
+// const dataProvider = restProvider("http://localhost:3000/api");
 
 const AdminPanel = () => {
   const adminLogin = useSelector((state) => state.adminLogin);

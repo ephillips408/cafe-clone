@@ -1,14 +1,23 @@
 import { fetchUtils } from "react-admin";
-import { stringify } from "querystring"
+import { stringify } from "querystring";
 
-const apiUrl = "http://localhost:3000/api" // May need to add a / at the end.
+const apiUrl = "http://localhost:3000/api";
 const httpClient = fetchUtils.fetchJson;
+
+// Helper to remove _ from _id
+const renameKey = (object, key, newKey) => {
+  const clone = (obj) => Object.assign({}, obj);
+  const clonedObj = clone(object);
+  const targetKey = clonedObj[key];
+
+  delete clonedObj[key];
+  clonedObj[newKey] = targetKey;
+  return clonedObj;
+};
 
 export default {
   getList: (resource, params) => {
-    console.log(resource);
-    console.log(params);
-    const { page, perPage } =  params.pagination;
+    const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
 
     const query = {
@@ -17,8 +26,11 @@ export default {
       filter: JSON.stringify(params.filter),
     };
 
-    const url = `${apiUrl}/${resource}`;
+    const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
-    return httpClient(url).then(({ json }) => ({ data: json }));
-  }
-}
+    return httpClient(url).then(({ headers, json }) => ({
+      data: json.map(resource => ({ ...resource, id: resource._id})),
+      total: parseInt(headers.get("content-range").split("/").pop(), 10),
+    }));
+  },
+};

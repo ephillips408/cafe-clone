@@ -1,11 +1,13 @@
 import express from "express";
 import Product from "../models/productModel";
+import { renameKey } from "../utils";
 
 const router = express.Router();
 
 // Get all products
 router.get("/", async (req, res) => {
   const products = await Product.find({});
+  res.setHeader("Content-Range", `posts 0-20/${products.length}`) // Needed for React-Admin pagination.
   res.send(products);
 });
 
