@@ -1,0 +1,1 @@
+This is a website for a fake cafe that uses React for the front end, and MongoDB, Express, and Node for the backend. I am currently working on integrating React Admin for the front end. Also, I do intend to add cart and checkout functionality.

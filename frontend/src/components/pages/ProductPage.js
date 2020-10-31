@@ -11,7 +11,6 @@ const ProductPage = (props) => {
 
   useEffect(() => {
     dispatch(productDetails(props.match.params.id));
-    console.log(props.match.params.id);
     return () => {
       // Cleanup not necessary.
     };

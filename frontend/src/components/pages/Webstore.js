@@ -13,7 +13,6 @@ const Store = (props) => {
 
   useEffect(() => {
     dispatch(listProducts())
-    console.log(props)
     return () => {
       // Cleanup not necessary.
     }

@@ -1,15 +1,18 @@
 import React from "react";
 import {
-  List,
   Edit,
+  List,
+  Create,
   Datagrid,
   SimpleForm,
-  ReferenceField,
   TextField,
   NumberField,
   EditButton,
   TextInput,
   NumberInput,
+  DeleteButton,
+  useRedirect,
+  useRefresh,
 } from "react-admin";
 
 export const ProductList = (props) => (
@@ -40,3 +43,24 @@ export const ProductEdit = (props) => (
     </SimpleForm>
   </Edit>
 );
+
+export const ProductCreate = (props) => {
+  const redirect = useRedirect();
+  const refresh = useRefresh();
+
+  const onSuccess = () => {
+    redirect("/");
+    refresh();
+  }
+
+  return (
+    <Create {...props} onSuccess={onSuccess}>
+      <SimpleForm>
+        <TextInput source="name" />
+        <NumberInput source="price" />
+        <TextInput source="image" />
+        <TextInput source="description" />
+      </SimpleForm>
+    </Create>
+  );
+};
