@@ -58,7 +58,7 @@ router.put("/:id", async (req, res) => {
 
     if (updatedProduct) {
       return res
-        .status(201)
+        .status(200)
         .send({ message: "Product Updated", data: updatedProduct });
     }
     return res.status(500).send({ message: "Error in updating product." });
@@ -73,7 +73,7 @@ router.delete("/:id", async (req, res) => {
 
   if (deletedProduct) {
     await deletedProduct.remove();
-    res.send({ message: "Product Deleted" });
+    res.status(204).send({ message: "Product Deleted" });
   } else {
     res.send({ message: "Error in Deletion" });
   }

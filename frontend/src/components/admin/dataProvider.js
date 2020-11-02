@@ -4,7 +4,7 @@ import { stringify } from "querystring";
 const apiUrl = "http://localhost:3000/api";
 const httpClient = fetchUtils.fetchJson;
 
-// update and delete are not working.
+// Delete still needs work.
 
 export default {
   getList: (resource, params) => {
@@ -37,7 +37,7 @@ export default {
     }).then(({ json }) => ({
       data: { ...params.data, id: json._id },
     })),  
-
+  
   update: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: "PUT",

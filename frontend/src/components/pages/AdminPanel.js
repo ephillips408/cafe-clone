@@ -3,9 +3,6 @@ import { useSelector } from "react-redux";
 import { Admin, Resource } from "react-admin";
 import dataProvider from "../admin/dataProvider";
 import { ProductCreate, ProductEdit, ProductList } from "../admin/products";
-// import simpleRestProvider from "ra-data-simple-rest"
-
-// const dataProvider = simpleRestProvider("http://localhost:3000/api")
 
 const AdminPanel = () => {
   const adminLogin = useSelector((state) => state.adminLogin);
