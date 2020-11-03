@@ -28,6 +28,7 @@ router.post("/", async (req, res) => {
     name: req.body.name,
     price: req.body.price,
     image: req.body.image,
+    countInStock: req.body.countInStock,
     description: req.body.description,
   });
 
@@ -42,6 +43,8 @@ router.post("/", async (req, res) => {
 });
 
 // Update a product
+// Issue with this. Postman sending 200 when countInStock is missing.
+// However, the product does not update, and error message shows in terminal with Product validation failed.
 router.put("/:id", async (req, res) => {
   const productId = req.params.id;
   const product = await Product.findById(productId);
@@ -51,6 +54,7 @@ router.put("/:id", async (req, res) => {
       product.name = req.body.name;
       product.price = req.body.price;
       product.image = req.body.image;
+      product.countInStock = req.body.countInStock;
       product.description = req.body.description;
     }
 

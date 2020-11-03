@@ -32,6 +32,7 @@ const ProductPage = (props) => {
           <li className="product-price">${product.price}</li>
           <li className="product-description">{product.description}</li>
           <li>
+            {/* Toggle Sold Out and Add to Cart button here. */}
             <button className="add-to-cart-button">Add to Cart</button>
           </li>
         </ul>
