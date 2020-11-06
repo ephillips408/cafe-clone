@@ -1,0 +1,15 @@
+.cart {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-image img {
+  max-width: 10rem;
+  max-height: 10rem;
+}
+
+.cart-action {
+  padding-right: 1rem;
+  justify-content: flex-end;
+}
+

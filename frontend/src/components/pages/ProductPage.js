@@ -16,6 +16,10 @@ const ProductPage = (props) => {
     };
   }, []);
 
+  const handleAddToCart = () => {
+    props.history.push(`/cart/${props.match.params.id}`)
+  }
+
   return (
     loading ? <div>Loading...</div> :
     error ? <div>{error}</div> :
@@ -33,7 +37,7 @@ const ProductPage = (props) => {
           <li className="product-description">{product.description}</li>
           <li>
             {/* Toggle Sold Out and Add to Cart button here. */}
-            <button className="add-to-cart-button">Add to Cart</button>
+            <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
           </li>
         </ul>
       </div>
