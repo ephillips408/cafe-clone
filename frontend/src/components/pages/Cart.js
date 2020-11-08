@@ -11,20 +11,19 @@ const Cart = (props) => {
   const productId = props.match.params.id;
   const dispatch = useDispatch();
 
-  // Increment and Decrement don't stop calling addToCart. Fix these
-
   const incrementQty = (item) => {
     if (item.qty < item.countInStock) {
       dispatch(addToCart(item.product, item.qty + 1));
     }
-    return;
   };
 
   const decrementQty = (item) => {
-    if (item.qty > 0) {
+    if (item.qty > 1) {
       dispatch(addToCart(item.product, item.qty - 1));
     }
-    return;
+    if (item.qty === 1) {
+      dispatch(removeFromCart(item.product))
+    }
   };
 
   const removeFromCartHandler = (productId) => {
@@ -57,8 +56,20 @@ const Cart = (props) => {
                       <li className="cart-item-price">${item.price}</li>
                       <li className="cart-item-qty">
                         Qty: {item.qty}{" "}
-                        <button onClick={() => incrementQty(item)}> + </button>{" "}
-                        <button onClick={() => decrementQty(item)}> - </button>
+                        <button
+                          className="cart-button-plus"
+                          onClick={() => incrementQty(item)}
+                        >
+                          {" "}
+                          +{" "}
+                        </button>{" "}
+                        <button
+                          className="cart-button-minus"
+                          onClick={() => decrementQty(item)}
+                        >
+                          {" "}
+                          -{" "}
+                        </button>
                       </li>
                     </ul>
                   </div>

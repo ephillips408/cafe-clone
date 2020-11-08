@@ -13,11 +13,11 @@ const addToCart = (productId, qty = 1) => async (dispatch, getState) => {
         image: data.image,
         price: data.price,
         countInStock: data.countInStock,
-        qty, // Changed this from qty,
+        qty,
       },
     });
     const {
-      cart: { cartItems }, // Check this if there are issues. Not dark blue in tutorial.
+      cart: { cartItems },
     } = getState();
   } catch {}
 };
