@@ -26,10 +26,6 @@ const Cart = (props) => {
     }
   };
 
-  const removeFromCartHandler = (productId) => {
-    dispatch(removeFromCart(productId));
-  };
-
   useEffect(() => {
     if (productId) {
       dispatch(addToCart(productId));
@@ -37,13 +33,13 @@ const Cart = (props) => {
   }, []);
 
   return (
-    <div className="cart">
+    <div className={cartItems.length === 1 ? "cart-one-item" : "cart"}>
       <div className="cart-list">
         <ul className="cart-list-container">
           <li>
             <h3>Shopping Cart</h3>
             {cartItems.length === 0 ? (
-              <div>Cart is empty</div>
+              <div className="no-items">Cart is empty</div>
             ) : (
               cartItems.map((item) => (
                 <li>
