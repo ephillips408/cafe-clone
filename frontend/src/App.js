@@ -11,6 +11,7 @@ import AdminPanel from "./components/pages/AdminPanel";
 import Webstore from "./components/pages/Webstore";
 import ProductPage from "./components/pages/ProductPage";
 import Cart from "./components/pages/Cart";
+import ShippingInfo from "./components/pages/ShippingInfo";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/panel" component={AdminPanel} />
           <Route path="/product/:id" component={ProductPage} />
           <Route path="/store" component={Webstore} />
+          <Route path="/shipping" component={ShippingInfo} />
           <Route path="/" component={HomePage} />
         </Switch>
         <Footer />

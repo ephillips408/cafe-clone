@@ -22,7 +22,7 @@ const Cart = (props) => {
       dispatch(addToCart(item.product, item.qty - 1));
     }
     if (item.qty === 1) {
-      dispatch(removeFromCart(item.product))
+      dispatch(removeFromCart(item.product));
     }
   };
 
@@ -81,7 +81,7 @@ const Cart = (props) => {
           $ {cartItems.reduce((acc, cur) => acc + cur.price * cur.qty, 0)}
         </h3>
         <button className="checkout-button" disabled={cartItems.length === 0}>
-          Proceed to Checkout
+          <Link to="/shipping">Proceed to Checkout</Link>
         </button>
       </div>
     </div>
