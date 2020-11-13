@@ -12,6 +12,7 @@ import Webstore from "./components/pages/Webstore";
 import ProductPage from "./components/pages/ProductPage";
 import Cart from "./components/pages/Cart";
 import ShippingInfo from "./components/pages/ShippingInfo";
+import PlaceOrder from "./components/pages/PlaceOrder";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path = "/cart/:id?" component={Cart} />
           <Route path="/login" component={Login} />
           <Route path="/panel" component={AdminPanel} />
+          <Route path="/placeorder" component={PlaceOrder} />
           <Route path="/product/:id" component={ProductPage} />
           <Route path="/store" component={Webstore} />
           <Route path="/shipping" component={ShippingInfo} />
