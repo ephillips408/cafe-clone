@@ -51,7 +51,19 @@
   justify-content: center;
 }
 
+.checkout-button-disabled {
+  background: transparent;
+  border: 1px solid rgb(28,27,27);
+  padding: 2px 10px;
+  justify-content: center;
+  pointer-events: none;
+}
+
 .checkout-button a {
+  color: rgb(28,27,27);
+}
+
+.checkout-button-disabled a {
   color: rgb(28,27,27);
 }
 

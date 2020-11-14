@@ -17,7 +17,7 @@ const PlaceOrder = () => {
   } = shipping;
 
   return (
-    <div className="order-info-container">
+    <div className={cartItems.length === 1 ? "order-one-item" : "order"}>
       <div className="shipping-info">
         <h3>Shipping Info:</h3>
         <ul>

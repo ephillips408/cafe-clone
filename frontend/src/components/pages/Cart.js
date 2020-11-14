@@ -80,7 +80,13 @@ const Cart = (props) => {
           Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)} items) :
           $ {cartItems.reduce((acc, cur) => acc + cur.price * cur.qty, 0)}
         </h3>
-        <button className="checkout-button" disabled={cartItems.length === 0}>
+        <button
+          className={
+            cartItems.length === 0
+              ? "checkout-button-disabled"
+              : "checkout-button"
+          }
+        >
           <Link to="/shipping">Proceed to Checkout</Link>
         </button>
       </div>

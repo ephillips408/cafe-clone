@@ -1,7 +1,15 @@
-.order-info-container {
+.order {
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+.order-one-item {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 165px;
 }
 
 .payment-info {
