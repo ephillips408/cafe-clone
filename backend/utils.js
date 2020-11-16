@@ -1,4 +1,3 @@
-import config from "./config";
 import jwt from "jsonwebtoken";
 
 const getToken = (user) => {
@@ -6,7 +5,7 @@ const getToken = (user) => {
     {
       username: user.username,
     },
-    config.JWT_SECRET,
+    process.env.JWT_SECRET,
     {
       expiresIn: "2h",
     }
@@ -17,8 +16,8 @@ const isAuth = (req, res, next) => {
   // Will need this when products are created. Admin must be authorized to create product.
   const token = req.headers.authorization;
   if (token) {
-    const onlyToken = token.slice(7, token.length); // Removes "Bearer, "
-    jwt.verify(onlyToken, config.JWT_SECRET, (err, decode) => {
+    const onlyToken = token.slice(7, token.length); // Removes "Bearer "
+    jwt.verify(onlyToken, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
         return res.status(401).send({ msg: "Invalid Token" });
       }
