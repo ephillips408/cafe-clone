@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 
 import { adminLoginReducer } from "./reducers/adminReducers";
 import { cartReducer } from "./reducers/cartReducers";
+import { orderCreateReducer } from "./reducers/orderReducers";
 import { productDetailsReducer, productListReducer } from "./reducers/productReducers";
 
 const adminInfo = null;
@@ -14,6 +15,7 @@ const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
+  orderCreate: orderCreateReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // Allows for use of Redux DevTools (Chrome extension).

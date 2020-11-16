@@ -1,10 +1,15 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { PromiseProvider } from "mongoose";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createOrder } from "../../actions/orderActions";
+import { ORDER_CREATE_RESET } from "../../constants/orderConstants";
 
 import "../../styles/PlaceOrder.css";
 
-const PlaceOrder = () => {
+const PlaceOrder = (props) => {
   const cart = useSelector((state) => state.cart);
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const { loading, success, error, order } = orderCreate;
   const { cartItems } = cart;
   const { shipping } = cart;
   const {
@@ -15,6 +20,20 @@ const PlaceOrder = () => {
     postalCode,
     country,
   } = shipping;
+
+  const dispatch = useDispatch();
+
+  const placeOrderHandler = () => {
+    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
+    // Destructure the cart, and then set orderItems to cartItems.
+  };
+
+  useEffect(() => {
+    if (success) {
+      props.history.push(`/order/${order._id}`);
+      dispatch({ type: ORDER_CREATE_RESET });
+    }
+  }, [dispatch, order, props.history, success]); // If success is true, function will run
 
   return (
     <div className={cartItems.length === 1 ? "order-one-item" : "order"}>
@@ -52,14 +71,18 @@ const PlaceOrder = () => {
         </ul>
       </div>
       <div className="shipping-action">
-          <h3>
-            Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)} items)
-            : $ {cartItems.reduce((acc, cur) => acc + cur.price * cur.qty, 0)}
-          </h3>
-          <button className="place-order-button" disabled={cartItems.length === 0}>
-            Place Order
-          </button>
-        </div>
+        <h3>
+          Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)} items) :
+          $ {cartItems.reduce((acc, cur) => acc + cur.price * cur.qty, 0)}
+        </h3>
+        <button
+          className="place-order-button"
+          disabled={cartItems.length === 0}
+          onClick={() => placeOrderHandler()}
+        >
+          Place Order
+        </button>
+      </div>
     </div>
   );
 };
