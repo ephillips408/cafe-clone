@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+// shippingAddress info is not being pushed to database.
+// Removing "required: true" to all fields will push info to database.
+// Order that is in the database shows what happens when "required: true" is removed.
 const orderSchema = new mongoose.Schema(
   {
     orderItems: [

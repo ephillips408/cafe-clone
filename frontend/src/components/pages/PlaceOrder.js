@@ -21,10 +21,19 @@ const PlaceOrder = (props) => {
     country,
   } = shipping;
 
+  const totalPrice = cartItems.reduce((acc, cur) => acc + cur.price * cur.qty, 0)
+
   const dispatch = useDispatch();
 
   const placeOrderHandler = () => {
-    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
+    dispatch(
+      createOrder({
+        ...cart,
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shipping,
+        totalPrice: totalPrice,
+      })
+    );
     // Destructure the cart, and then set orderItems to cartItems.
   };
 
@@ -73,7 +82,7 @@ const PlaceOrder = (props) => {
       <div className="shipping-action">
         <h3>
           Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)} items) :
-          $ {cartItems.reduce((acc, cur) => acc + cur.price * cur.qty, 0)}
+          $ {totalPrice}
         </h3>
         <button
           className="place-order-button"
