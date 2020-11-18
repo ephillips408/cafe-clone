@@ -1,4 +1,3 @@
-import { PromiseProvider } from "mongoose";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrder } from "../../actions/orderActions";
